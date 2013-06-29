@@ -1,0 +1,6 @@
+default=0
+timeout=1
+title virtcluster Boot 
+	root (hd0,0)
+	kernel /vmlinuz root=/dev/vc_vg/vc_root
+	initrd /initrd

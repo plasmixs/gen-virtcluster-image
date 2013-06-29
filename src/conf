@@ -1,0 +1,17 @@
+YUM_PREP='y'
+DSK_PREP='y'
+FSTAB_PROC='y'
+
+export DSK_DEV="/dev/sdc"
+
+#List of required packages.
+export PKG_LST="rpm net-tools grub passwd vi dhclient"
+
+#Temporary fstab file.
+export tmp_fstab="/tmp/tmp_fstab"
+
+#Destination directory
+export destdir=/mnt
+#Directory that will contain the packages installed.
+export prepdir=$WORK_DIR/testinstall
+

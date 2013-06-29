@@ -1,0 +1,23 @@
+#!/bin/sh
+
+#sysroot. New root directory.
+NEWROOT="/sysroot"
+mkdir $NEWROOT
+
+echo "Simple img_mnt is active"
+mount -t proc /proc /proc
+mount -t sysfs none /sys
+
+#Insert all the modules.
+
+#Start udev
+/sbin/start_udev
+
+#Lvm actions here.
+/sbin/vgchange -ay
+
+#mount new root
+mount -t ext3 -o ro /dev/vc_vg/vc_root /sysroot
+
+#switch root to the new root
+exec /sbin/switch_root /sysroot /sbin/init
